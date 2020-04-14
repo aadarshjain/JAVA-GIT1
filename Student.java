@@ -1,3 +1,5 @@
+package studentdatabaseapp;
+
 import java.util.Scanner;
 
 public class Student{
@@ -45,7 +47,7 @@ public class Student{
 			String course = in.nextLine();
 			if(!course.equals("Q")) {
 				courses = courses + "\n  " + course;
-				tuitionBalance = tuitionBalance + costOfCourse;
+				tuituinBalance = tuitionBalance + costOfCourse;
 			}
 			else{
 				break;
@@ -54,3 +56,31 @@ public class Student{
 		
 		//System.out.println("ENROLLED IN: "+ courses);
 	}
+	
+    //view balance
+    public void viewBalance() {
+		System.out.println("Your balance is: $ "+ tuitionBalance);
+	}
+	
+    //pay tuiton
+    public void payTuition() {
+		viewBalance();
+		System.out.print("Enter your payment: $");
+		Scanner in = new Scanner(Scanner.in);
+		int payment = in.nextInt();
+		tuitionBalance = tuitionBalance - payment;
+		System.out.println("Thank you for your payment of $" + payment);
+		viewBalance();
+	}
+    //show status
+	public String toString() {
+		return "Name: " + firstName + " " + lastName + 
+				"\nGrade Level: " +  gradYear + 
+				"\nStudent ID: " + studentID + 
+				"\nCourses enrolled: " + courses + 
+				"\nBalance: $" + tuitionBalance;
+		
+	}
+	
+	
+}
